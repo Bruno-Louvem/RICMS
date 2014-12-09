@@ -1,0 +1,4 @@
+services:
+#    ricms.example:
+#        class: MG\RICMS\RICMSBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

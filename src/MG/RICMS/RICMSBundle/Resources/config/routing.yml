@@ -1,0 +1,11 @@
+ricms_livro:
+    resource: "@RICMSBundle/Resources/config/routing/livro.yml"
+    prefix:   /livro
+
+ricms_homepage:
+    path:     /
+    defaults: { _controller: RICMSBundle:Default:index }
+    
+ricms_about:
+    path:     /sobre
+    defaults: { _controller: RICMSBundle:Default:about }

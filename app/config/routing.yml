@@ -1,0 +1,7 @@
+ricms:
+    resource: "@RICMSBundle/Resources/config/routing.yml"
+    prefix:   /ricms
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation
