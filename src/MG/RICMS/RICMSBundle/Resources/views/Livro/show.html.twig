@@ -17,20 +17,38 @@
                 <th>Descricao</th>
                 <td>{{ entity.descricao }}</td>
             </tr>
+            <tr>
+                <td colspan="2">
+                    Capitulos
+                    {% if entity.capitulos|length > 0 %}
+                        <ul>
+
+                            {% for capitulo in entity.capitulos %}
+                                <li><a href="{{ path('capitulo_show', { 'id': capitulo.id }) }}">{{ capitulo.nome }}</a></li>
+                                {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>Livro vazio</p>
+                    {% endif %}
+                </td>
+            </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('livro') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('livro_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('livro') }}">
+                Listagem de Livros
+            </a>
+        </li>
+        {% if is_granted('ROLE_ADMIN') %}
+        <li>
+            <a href="{{ path('livro_edit', { 'id': entity.id }) }}">
+                Edit
+            </a>
+        </li>
+        
+        <li>{{ form(delete_form) }}</li>
+        {% endif %}
+    </ul>
 {% endblock %}

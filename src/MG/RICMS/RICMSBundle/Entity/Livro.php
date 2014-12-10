@@ -3,7 +3,7 @@
 namespace MG\RICMS\RICMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Livro
  *
@@ -35,7 +35,10 @@ class Livro
      */
     private $descricao;
 
-
+    /**
+     * @ORM\OneToMany(targetEntity="MG\RICMS\RICMSBundle\Entity\Capitulo", mappedBy="idLivro")
+     */
+    protected $capitulos;
     /**
      * Get id
      *
@@ -91,4 +94,14 @@ class Livro
     {
         return $this->descricao;
     }
+    
+    function getCapitulos() {
+        return $this->capitulos;
+    }
+
+    function setCapitulos($capitulos) {
+        $this->capitulos = $capitulos;
+    }
+
+
 }

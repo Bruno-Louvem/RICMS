@@ -22,9 +22,9 @@ class Capitulo
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_livro", type="integer")
+     * 
+     * @ORM\ManyToOne(targetEntity="MG\RICMS\RICMSBundle\Entity\Livro", cascade={"remove"}, inversedBy="capitulos")
+     * @ORM\JoinColumn(name="id_livro",referencedColumnName="id",onDelete="CASCADE")
      */
     private $idLivro;
 

@@ -1,0 +1,7 @@
+capitulo:
+    path:     /
+    defaults: { _controller: "RICMSBundle:Capitulo:index" }
+
+capitulo_show:
+    path:     /{id}/show
+    defaults: { _controller: "RICMSBundle:Capitulo:show" }
