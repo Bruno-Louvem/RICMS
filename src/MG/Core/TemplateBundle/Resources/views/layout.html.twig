@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html class="fixed {% block additional_class %}{% endblock %}">
+    <head>{% block head %}{% endblock %}</head>
+
+    <body>
+        <section class="body">
+            <header class="header">
+                {% block header %}{% endblock %}
+            </header>
+            <div class="inner-wrapper">
+                {% block sidebar %}{% endblock %}
+                <section role="main" class="content-body">
+                {% block content %}{% endblock %}
+                </section>
+            </div>
+        </section>
+        {% block javascripts %}{% endblock %}
+    </body>
+
+</html>

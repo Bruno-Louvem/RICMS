@@ -2,6 +2,10 @@ ricms_livro:
     resource: "@RICMSBundle/Resources/config/routing/livro.yml"
     prefix:   /livro
 
+ricms_livro_admin:
+    resource: "@RICMSBundle/Resources/config/routing/livro_admin.yml"
+    prefix:   /admin/livro
+
 ricms_capitulo:
     resource: "@RICMSBundle/Resources/config/routing/capitulo.yml"
     prefix:   /capitulo

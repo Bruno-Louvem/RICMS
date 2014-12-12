@@ -1,9 +1,100 @@
 {% extends 'RICMSBundle::layout.html.twig' %}
-{% block body %}
-<h1>Home do RICMS</h1></br>
+{% block additional_class %}sidebar-left-collapsed{% endblock %}
+{% block head %}
+    {% embed 'TemplateBundle:base:head.html.twig' %}
+        {% block page_level_css %}
+            <link rel="stylesheet" href="{{ asset('bundles/template/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css') }}" />
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+{% block sidebar %}
+    <aside id="sidebar-left" class="sidebar-left">
+        {% embed 'TemplateBundle:base:sidebar.html.twig' %}
+            {% block sidebar_header %}
+                {% include 'TemplateBundle:blocks:sidebar/sidebar_header.html.twig' %}
+            {% endblock %}
 
-<ul>
-    <li><a href="{{ path("ricms_about") }}">Sobre nós</a></li>
-    <li><a href="{{ path("livro") }}">Livros</a></li>
-</ul>
+        {% endembed %}
+    </aside>
+{% endblock %}
+{% block content %}
+    {% embed 'TemplateBundle:base:page_header.html.twig' %}
+        {% block title_page %}RICMS{% endblock %}
+    {% block breadcrumb %}{% include 'TemplateBundle:blocks:page_header/breadcrumb.html.twig' %}{% endblock %}
+{% endembed %}
+{% embed 'TemplateBundle:components:panel/panel.html.twig' %}
+    {% block title_panel %}Livros{% endblock %}
+    {% block panel_body %}
+        {% embed 'TemplateBundle:components:table/advanced_table.html.twig' %}
+            {% block table_head %}
+                <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th class="hidden-phone">Descrição</th>
+                        <th>Ações</th>
+                </tr>
+            {% endblock %}
+            {% block table_body %}
+                <tr class="gradeX">
+                    <td>Trident</td>
+                    <td>Internet Explorer 4.0</td>
+                    <td>Win 95+</td>
+                    <td class="center hidden-phone">4</td>
+                </tr>
+            
+            {% endblock %}
+										
+        {% endembed %}
+    {% endblock %}
+{% endembed %}
+
+{% endblock %}
+{% block javascripts %}
+    {% embed 'TemplateBundle:base:javascript.html.twig' %}
+        {% block page_level_plugin_javascripts %}
+            <script src="{{ asset("/bundles/template/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js") }}"></script>
+            <script src="{{ asset("/bundles/template/assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js") }}"></script>
+            <script src="{{ asset("/bundles/template/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js") }}"></script>
+        {% endblock %}
+        {% block page_level_javascripts %}
+            <script>
+                (function ($) {
+
+                    'use strict';
+
+                    var datatableInit = function () {
+
+                        $('#datatable-default').dataTable({language: {
+                        processing: "Processando",
+                        search: "Buscar&nbsp;:",
+                        lengthMenu: "Listar por: _MENU_ registros",
+                        info: "Mostrando de _START_ at&eacute; _END_ de _TOTAL_ registros",
+                        infoEmpty: "Mostrando 0 até 0 de 0 registros",
+                        infoFiltered: "(Filtrados de _MAX_ registros)",
+                        infoPostFix: "",
+                        loadingRecords: "Carregando...",
+                        zeroRecords: "N&atilde;o foram encontrados registros",
+                        emptyTable: "Nenhum registro encontrado",
+                        paginate: {
+                            first: "Primeiro",
+                            previous: "Anterior",
+                            next: "Pr&oacute;ximo",
+                            last: "&Uacute;ltimo"
+                        },
+                        aria: {
+                            sortAscending: ": Ordenar colunas de forma ascendente",
+                            sortDescending: ": Ordenar colunas de forma descendente"
+                        }
+                    }});
+
+                    };
+
+                    $(function () {
+                        datatableInit();
+                    });
+
+                }).apply(this, [jQuery]);
+            </script>
+        {% endblock %}
+    {% endembed %}
 {% endblock %}
