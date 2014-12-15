@@ -13,7 +13,21 @@
                 <th>Nome</th>
                 <td>{{ entity.nome }}</td>
             </tr>
-            
+            <tr>
+                <td colspan="2">
+                    Titulos
+                    {% if entity.titulos|length > 0 %}
+                        <ul>
+
+                            {% for titulo in entity.titulos %}
+                                <li><a href="{{ path('titulo_show', { 'id': titulo.id }) }}">{{ titulo.titulo }}</a></li>
+                                {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>Capitulo vazio</p>
+                    {% endif %}
+                </td>
+            </tr>
             
         </tbody>
     </table>

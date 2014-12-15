@@ -9,6 +9,10 @@ ricms_livro_admin:
 ricms_capitulo:
     resource: "@RICMSBundle/Resources/config/routing/capitulo.yml"
     prefix:   /capitulo
+    
+ricms_titulo_admin:
+    resource: "@RICMSBundle/Resources/config/routing/titulo_admin.yml"
+    prefix:   /admin/titulo
 
 ricms_homepage:
     path:     /

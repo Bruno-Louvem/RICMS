@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="capitulo")
  * @ORM\Entity(repositoryClass="MG\RICMS\RICMSBundle\Entity\CapituloRepository")
  */
-class Capitulo
-{
+class Capitulo {
+
     /**
      * @var integer
      *
@@ -42,14 +42,17 @@ class Capitulo
      */
     private $status;
 
+    /**
+     * @ORM\OneToMany(targetEntity="MG\RICMS\RICMSBundle\Entity\Titulo", mappedBy="idCapitulo")
+     */
+    protected $titulos;
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -59,8 +62,7 @@ class Capitulo
      * @param integer $idLivro
      * @return Capitulo
      */
-    public function setIdLivro($idLivro)
-    {
+    public function setIdLivro($idLivro) {
         $this->idLivro = $idLivro;
 
         return $this;
@@ -71,8 +73,7 @@ class Capitulo
      *
      * @return integer 
      */
-    public function getIdLivro()
-    {
+    public function getIdLivro() {
         return $this->idLivro;
     }
 
@@ -82,8 +83,7 @@ class Capitulo
      * @param string $nome
      * @return Capitulo
      */
-    public function setNome($nome)
-    {
+    public function setNome($nome) {
         $this->nome = $nome;
 
         return $this;
@@ -94,8 +94,7 @@ class Capitulo
      *
      * @return string 
      */
-    public function getNome()
-    {
+    public function getNome() {
         return $this->nome;
     }
 
@@ -105,8 +104,7 @@ class Capitulo
      * @param integer $status
      * @return Capitulo
      */
-    public function setStatus($status)
-    {
+    public function setStatus($status) {
         $this->status = $status;
 
         return $this;
@@ -117,8 +115,20 @@ class Capitulo
      *
      * @return integer 
      */
-    public function getStatus()
-    {
+    public function getStatus() {
         return $this->status;
     }
+
+    function getTitulos() {
+        return $this->titulos;
+    }
+
+    function setTitulos($titulos) {
+        $this->titulos = $titulos;
+    }
+
+    public function __toString() {
+        return (string) $this->id;
+    }
+
 }

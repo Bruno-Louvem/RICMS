@@ -1,0 +1,30 @@
+titulo:
+    path:     /
+    defaults: { _controller: "RICMSBundle:Titulo:index" }
+
+titulo_show:
+    path:     /{id}/show
+    defaults: { _controller: "RICMSBundle:Titulo:show" }
+
+titulo_new:
+    path:     /new
+    defaults: { _controller: "RICMSBundle:Titulo:new" }
+
+titulo_create:
+    path:     /create
+    defaults: { _controller: "RICMSBundle:Titulo:create" }
+    requirements: { _method: post }
+
+titulo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "RICMSBundle:Titulo:edit" }
+
+titulo_update:
+    path:     /{id}/update
+    defaults: { _controller: "RICMSBundle:Titulo:update" }
+    requirements: { _method: post|put }
+
+titulo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "RICMSBundle:Titulo:delete" }
+    requirements: { _method: post|delete }
