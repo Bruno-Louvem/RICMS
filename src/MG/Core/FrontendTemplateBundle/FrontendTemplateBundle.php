@@ -1,9 +1,9 @@
 <?php
 
-namespace MG\Core\FrontendTemplateBundle;
+namespace MG\Core\TemplateBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class FrontendTemplateBundle extends Bundle
+class TemplateBundle extends Bundle
 {
 }

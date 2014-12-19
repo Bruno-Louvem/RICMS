@@ -1,7 +1,3 @@
-mgt:
-    resource: "@MGTBundle/Resources/config/routing.yml"
-    prefix:   /
-
 ricms:
     resource: "@RICMSBundle/Resources/config/routing.yml"
     prefix:   /ricms

@@ -1,3 +1,0 @@
-mgt_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: MGTBundle:Default:index }
